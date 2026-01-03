@@ -5,147 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Heena!</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6b4fbb;
-            --accent: #ffd700;
-            --text: #2d3436;
+            --bg: #fff0f3;
+            --primary: #ff4d6d;
+            --secondary: #ffb3c1;
+            --text: #590d22;
         }
 
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-color: var(--bg);
+            font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
         .card {
             background: white;
-            width: 90%;
-            max-width: 500px;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 85%;
+            max-width: 400px;
+            padding: 40px 20px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(255, 77, 109, 0.2);
             text-align: center;
-            position: relative;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            border: 6px solid var(--secondary);
         }
 
         h1 {
+            font-family: 'Dancing Script', cursive;
             color: var(--primary);
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.8rem;
+            margin: 10px 0;
         }
 
-        .date {
-            color: #666;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .gallery {
+        .photo-container {
             display: flex;
-            gap: 10px;
             justify-content: center;
-            margin: 20px 0;
+            gap: 15px;
+            margin: 25px 0;
         }
 
-        .gallery img {
-            width: 140px;
-            height: 180px;
+        .photo-container img {
+            width: 130px;
+            height: 170px;
             object-fit: cover;
-            border-radius: 12px;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
+            border-radius: 15px;
+            border: 4px solid white;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
         }
 
-        .gallery img:hover {
-            transform: scale(1.05) rotate(2deg);
-        }
-
-        p {
-            line-height: 1.6;
-            color: var(--text);
-            font-size: 1.1rem;
-        }
+        .p1 { transform: rotate(-6deg); }
+        .p2 { transform: rotate(6deg); }
 
         .btn {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 12px 30px;
+            padding: 12px 35px;
             border-radius: 25px;
-            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
             margin-top: 20px;
-            transition: 0.3s;
         }
-
-        .btn:hover {
-            background: #563d9e;
-            transform: translateY(-2px);
-        }
-
     </style>
 </head>
 <body>
 
     <div class="card">
-        <h1>Happy Birthday, Heena! 🎂</h1>
-        <div class="date">JANUARY 6, 2026</div>
+        <div style="font-weight: bold; letter-spacing: 2px;">JANUARY 6TH</div>
+        <h1>Happy Birthday, Heena! 🌸</h1>
         
-        <div class="gallery">
-            <img src="photo1.jpg" alt="Heena Photo 1">
-            <img src="photo2.jpg" alt="Heena Photo 2">
+        <div class="photo-container">
+            <img src="photo1.jpg" class="p1" alt="Heena 1">
+            <img src="photo2.jpg" class="p2" alt="Heena 2">
         </div>
 
-        <p>Wishing you a day filled with laughter, joy, and all your favorite things. May this year bring you as much happiness as you bring to everyone around you!</p>
-        
-        <button class="btn" onclick="celebrate()">Celebrate Again! 🎉</button>
+        <p style="color: var(--text); font-style: italic;">
+            "Wishing you a day as wonderful as you are!"
+        </p>
+
+        <button class="btn" onclick="celebrate()">Tap for Magic! ✨</button>
     </div>
 
     <script>
-        // Automatic celebration on load
-        window.onload = function() {
-            celebrate();
-        };
-
+        window.onload = celebrate;
         function celebrate() {
-            const duration = 3 * 1000;
-            const end = Date.now() + duration;
-
-            (function frame() {
-                confetti({
-                    particleCount: 3,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0 },
-                    colors: ['#6b4fbb', '#ffd700', '#ffffff']
-                });
-                confetti({
-                    particleCount: 3,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1 },
-                    colors: ['#6b4fbb', '#ffd700', '#ffffff']
-                });
-
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            }());
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ff4d6d', '#ffb3c1', '#ffffff']
+            });
         }
     </script>
 </body>
 </html>
+
